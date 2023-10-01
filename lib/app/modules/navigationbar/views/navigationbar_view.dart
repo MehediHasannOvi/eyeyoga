@@ -1,5 +1,6 @@
 import 'package:eyeyoga/app/colors/app_colors.dart';
 import 'package:eyeyoga/app/modules/home/views/home_view.dart';
+import 'package:eyeyoga/app/modules/profile/views/profile_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class NavigationbarView extends GetView<NavigationbarController> {
             children: const [
               HomeView(),
               HomeView(),
-              HomeView(),
+              ProfileView(),
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(

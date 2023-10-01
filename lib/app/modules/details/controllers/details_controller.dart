@@ -1,23 +1,19 @@
+import 'package:eyeyoga/app/utils/app_count.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class DetailsController extends GetxController {
   //TODO: Implement DetailsController
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  bool button = false.obs.value;
 
-  @override
-  void onReady() {
-    super.onReady();
+  void buttonChange(double duration) {
+    if (button == false) {
+      
+      button = true;
+    } else {
+      AppCount(duration: duration ,);
+    }
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

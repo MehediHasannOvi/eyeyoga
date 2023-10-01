@@ -1,0 +1,58 @@
+[
+    {
+        "id" : 1,
+        "name" : "Palming",
+        "exercise" : "Rub your palms together vigorously to generate heat. Cup your palms and place them gently over your closed eyes without putting pressure on them. Take a few deep breaths and relax for a minute while your eyes are covered.",
+        "time" : 60
+    
+    },
+    {
+        "id" : 2,
+        "name" : "Eye Rolling",
+        "exercise" : "Sit comfortably and look straight ahead. Slowly roll your eyes in a clockwise direction for about 15-20 seconds. Then, roll them counterclockwise for the same duration. Blink a few times to relax your eyes.",
+        "time" : 30
+    
+    },
+    {
+        "id" : 3,
+        "name" : "Focus Shifting",
+        "exercise" : "Hold a pen or pencil at arm's length in front of you. Focus on the tip of the pen. Slowly bring the pen closer to your nose, keeping your eyes focused on it. Move the pen away from your nose again. Repeat this process 10-15 times.",
+        "time" : 60
+    
+    },
+    {
+        "id" : 4,
+        "name" : "Near-Far Focus",
+        "exercise" : "Find an object close to you and focus on it for a few seconds. Then, shift your gaze to an object far away and focus on it for a few seconds. Repeat this process, alternating between near and far objects, for about 1-2 minutes.",
+        "time" : 60
+    
+    },
+    {
+        "id" : 5,
+        "name" : "Blinking Exercise",
+        "exercise" : "Blink your eyes rapidly for about 30 seconds. This helps to refresh the tear film and reduce eye strain.",
+        "time" : 30
+    
+    },
+    {
+        "id" : 6,
+        "name" : "Figure Eight Eye Exercise",
+        "exercise" : "Imagine an enormous figure eight (infinity symbol) in front of you. Trace the figure eight with your eyes, moving your gaze smoothly along its shape. Repeat this exercise for about 1-2 minutes.",
+        "time" : 60
+    
+    },
+    {
+        "id" : 7,
+        "name" : "20-20-20 Rule",
+        "exercise" : "To reduce digital eye strain, every 20 minutes, take a 20-second break, and look at something 20 feet away.",
+        "time" : 20
+    
+    },
+    {
+        "id" : 8,
+        "name" : "Focus Shifting",
+        "exercise" : "Hold a pen or pencil at arm's length in front of you. Focus on the tip of the pen. Slowly bring the pen closer to your nose, keeping your eyes focused on it. Move the pen away from your nose again. Repeat this process 10-15 times.",
+        "time" : 60
+    
+    }
+]

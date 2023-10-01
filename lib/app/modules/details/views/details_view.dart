@@ -1,4 +1,5 @@
 import 'package:eyeyoga/app/colors/app_colors.dart';
+import 'package:eyeyoga/app/utils/app_count.dart';
 import 'package:eyeyoga/app/utils/app_size.dart';
 import 'package:eyeyoga/app/utils/app_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,6 +14,7 @@ class DetailsView extends GetView<DetailsController> {
   const DetailsView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final data = Get.arguments;
     return Scaffold(
         appBar: AppBar(
           // title: const Text('DetailsView'),
@@ -42,7 +44,7 @@ class DetailsView extends GetView<DetailsController> {
           child: ListView(
             children: [
               AppTexts(
-                text: "Palming",
+                text: data.name.toString(),
                 color: AppColors.text,
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w400,
@@ -51,8 +53,16 @@ class DetailsView extends GetView<DetailsController> {
               Sbox(
                 height: 50,
               ),
-              Lottie.asset('assets/icons/playicon.json',
-                  height: 200.h, width: 200.h),
+              GestureDetector(
+                onTap: () {
+                  controller.button;
+                  
+                },
+                child: controller.button ==  controller.button
+                    ? Lottie.asset('assets/icons/playicon.json',
+                        height: 200.h, width: 200.h)
+                    : Center(child: Text("Count Down")),
+              ),
               Sbox(
                 height: 150,
               ),
@@ -64,12 +74,11 @@ class DetailsView extends GetView<DetailsController> {
                     borderRadius: BorderRadius.circular(12),
                     color: AppColors.inactiveColor),
                 child: AppTexts(
-                  text:
-                      "Rub your hands together vigorously to generate heat, then cup your palms over your closed eyes without putting pressure on them. Relax and breathe deeply for a few minutes, allowing your eyes to rest.",
+                  text: data.exercise.toString(),
                   color: AppColors.textgray,
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
-                  textAlign: TextAlign.justify,
+                  textAlign: TextAlign.start,
                 ),
               )
             ],

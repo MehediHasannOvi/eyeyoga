@@ -28,11 +28,8 @@ class AppButton extends StatelessWidget {
 class AppButton2 extends StatelessWidget {
   final String text;
   Function()? onTap;
-   AppButton2({
-    super.key,
-    required this.text,
-    this.onTap,
-  });
+  String time;
+  AppButton2({super.key, required this.text, this.onTap, required this.time});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +63,7 @@ class AppButton2 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 AppTexts(
-                  text: "~20 sec.",
+                  text: "$time ~ sec.",
                   color: AppColors.textgray,
                   fontSize: 10.sp,
                   fontWeight: FontWeight.w400,

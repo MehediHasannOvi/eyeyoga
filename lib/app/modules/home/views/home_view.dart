@@ -1,4 +1,5 @@
 import 'package:eyeyoga/app/colors/app_Colors.dart';
+import 'package:eyeyoga/app/model/exercise.dart';
 import 'package:eyeyoga/app/routes/app_pages.dart';
 import 'package:eyeyoga/app/utils/app_button.dart';
 import 'package:eyeyoga/app/utils/app_size.dart';
@@ -17,6 +18,13 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('EyeYoga'),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  controller.getExercise();
+                },
+                icon: const Icon(Icons.settings))
+          ],
         ),
         body: Container(
           margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -82,23 +90,39 @@ class HomeView extends GetView<HomeController> {
               //     ),
               //   ],
               // )
-              GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 20,
-                      mainAxisExtent: 170),
-                  itemCount: 8,
-                  itemBuilder: (context, index) {
-                    return AppButton2(
-                      onTap: () {
-                        Get.toNamed(Routes.DETAILS);
-                      },
-                      text: "Blinking",
-                    );
-                  })
+              FutureBuilder<List<ExerciseModel>>(
+                  future: controller.getExercise(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return GridView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  crossAxisSpacing: 10,
+                                  mainAxisSpacing: 20,
+                                  mainAxisExtent: 170),
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (context, index) {
+                            return AppButton2(
+                              onTap: () {
+                                Get.toNamed(Routes.DETAILS,
+                                    arguments: snapshot.data![index]);
+                              },
+                              text: snapshot.data![index].name.toString(),
+                              time: snapshot.data![index].time.toString(),
+                            );
+                          }); 
+                    } else {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  }),
+                  const Sbox(
+                   height: 20,
+                  ),
             ],
           ),
         ));
