@@ -56,7 +56,7 @@ class AppButton2 extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
             ),
-            Sbox(
+            const Sbox(
               height: 10,
             ),
             Row(

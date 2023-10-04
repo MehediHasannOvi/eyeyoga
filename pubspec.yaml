@@ -13,7 +13,11 @@ dependencies:
   google_fonts: ^6.1.0
   flutter_screenutil: ^5.9.0
   lottie: ^2.6.0
-  circular_countdown_timer: ^0.2.3
+
+  neon_circular_timer: ^0.0.7
+  confetti: ^0.7.0
+  just_audio: ^0.9.35
+
 
 dev_dependencies: 
   flutter_lints: ^2.0.0
@@ -26,6 +30,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/json/
+    - assets/sound/
     
 
 

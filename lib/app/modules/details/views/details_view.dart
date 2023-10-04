@@ -1,5 +1,5 @@
 import 'package:eyeyoga/app/colors/app_colors.dart';
-import 'package:eyeyoga/app/utils/app_count.dart';
+
 import 'package:eyeyoga/app/utils/app_size.dart';
 import 'package:eyeyoga/app/utils/app_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:get/get.dart';
+import 'package:neon_circular_timer/neon_circular_timer.dart';
 
 import '../controllers/details_controller.dart';
 
@@ -23,7 +24,7 @@ class DetailsView extends GetView<DetailsController> {
               onPressed: () {
                 Get.back();
               },
-              icon: Icon(
+              icon: const Icon(
                 CupertinoIcons.back,
                 color: AppColors.text,
               )),
@@ -31,16 +32,16 @@ class DetailsView extends GetView<DetailsController> {
           actions: [
             IconButton(
                 onPressed: () {
-                  Get.back();
+                  controller.toggleButton();
                 },
-                icon: Icon(
+                icon: const Icon(
                   CupertinoIcons.bell,
                   color: AppColors.text,
                 )),
           ],
         ),
         body: Container(
-          margin: EdgeInsets.all(20),
+          margin: const EdgeInsets.all(20),
           child: ListView(
             children: [
               AppTexts(
@@ -50,24 +51,51 @@ class DetailsView extends GetView<DetailsController> {
                 fontWeight: FontWeight.w400,
                 textAlign: TextAlign.center,
               ),
-              Sbox(
+              const Sbox(
                 height: 50,
               ),
-              GestureDetector(
-                onTap: () {
-                  controller.button;
-                  
-                },
-                child: controller.button ==  controller.button
-                    ? Lottie.asset('assets/icons/playicon.json',
-                        height: 200.h, width: 200.h)
-                    : Center(child: Text("Count Down")),
+              Obx(
+                () => controller.button.isTrue
+                    ? GestureDetector(
+                        onTap: () {
+                          controller.toggleButton();
+                        },
+                        child: Lottie.asset('assets/icons/playicon.json',
+                            height: 200.h, width: 200.h),
+                      )
+                    : NeonCircularTimer(
+                        width: 200,
+                        duration: data.time,
+                        controller: null,
+                        neumorphicEffect: false,
+                        isTimerTextShown: true,
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400),
+                        innerFillGradient: LinearGradient(colors: [
+                          Colors.greenAccent.shade200,
+                          Colors.blueAccent.shade400
+                        ]),
+                        neonGradient: LinearGradient(colors: [
+                          Colors.greenAccent.shade200,
+                          Colors.blueAccent.shade400
+                        ]),
+                       onStart: () {
+                          controller.soundplay();
+                        
+                       },
+                        onComplete: () {
+                        
+                          controller.toggleButton();
+                        },
+                      ),
               ),
-              Sbox(
+              const Sbox(
                 height: 150,
               ),
               Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 height: 150.h,
                 width: double.infinity,
                 decoration: BoxDecoration(

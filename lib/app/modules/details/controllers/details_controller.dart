@@ -1,19 +1,21 @@
-import 'package:eyeyoga/app/utils/app_count.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
+import 'package:just_audio/just_audio.dart';
 
 class DetailsController extends GetxController {
   //TODO: Implement DetailsController
 
-  bool button = false.obs.value;
+  final RxBool button = true.obs;
 
-  void buttonChange(double duration) {
-    if (button == false) {
-      
-      button = true;
-    } else {
-      AppCount(duration: duration ,);
-    }
+  // void onInit() {
+  //   circularTimer();
+  //   super.onInit();
+  // }
+  void toggleButton() async {
+    button.value = !button.value;
+  }
+
+  void soundplay() async {
+    await AudioPlayer().setAsset('assets/sound/sound.MP3');
+    await AudioPlayer().play();
   }
 }
